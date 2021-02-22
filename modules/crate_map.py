@@ -4,14 +4,15 @@ import requests
 import folium
 from geopy.exc import GeocoderUnavailable
 from geopy.geocoders import Nominatim
-from geopy.extra.rate_limiter import RateLimiter
-# from modules.hidden import bearer_token
 
 
-def crate_list_of_points(name: str, bearer_token: str):
+def crate_list_of_points(name: str, bearer_token: str) -> dict:
+    """
+    Function create dict of points using request by Twitter API anf geopy
+    It crate dict of points with coordinates of locations of given user friends
+    """
     # from modules.hidden import bearer_token
     geolocator = Nominatim(user_agent="super_puper_extra_important_request")
-    geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
 
     base_url = 'https://api.twitter.com/'
     search_url = f'{base_url}1.1/friends/list.json'
@@ -46,7 +47,7 @@ def crate_list_of_points(name: str, bearer_token: str):
     return points
 
 
-def create_map(points):
+def create_map(points:dict):
     """
     function create web map in html format in which are marked points
     """
@@ -64,5 +65,5 @@ def create_map(points):
     map0.save('./templates/map.html')
 
 
-if __name__ == '__main__':
-    create_map(crate_list_of_points('ElonMusk'))
+# if __name__ == '__main__':
+#     create_map(crate_list_of_points('ElonMusk'))
