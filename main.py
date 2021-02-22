@@ -19,6 +19,7 @@ def index():
 def register():
     name = request.form.get("screen_name")
     bearer_token = request.form.get("bearer_token")
+    # from modules.hidden0 import bearer_token
     print(name)
     print(bearer_token)
     if not name or not bearer_token:
@@ -28,4 +29,4 @@ def register():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5000)
+    app.run(debug=False, host='0.0.0.0')

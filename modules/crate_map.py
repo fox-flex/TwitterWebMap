@@ -51,8 +51,8 @@ def create_map(points:dict):
     """
     function create web map in html format in which are marked points
     """
-    map0 = folium.Map(zoom_start=6)
-    tooltip = "Hype!"
+    map0 = folium.Map(zoom_start=7)
+    tooltip = "flex!"
 
     point_layer = folium.FeatureGroup(name="Friends Search")
     for pos in points:
@@ -65,5 +65,5 @@ def create_map(points:dict):
     map0.save('./templates/map.html')
 
 
-# if __name__ == '__main__':
-#     create_map(crate_list_of_points('ElonMusk'))
+if __name__ == '__main__':
+    create_map(crate_list_of_points('ElonMusk','AAAAAAAAAAAAAAAAAAAAAF0GNAEAAAAA4ArRfJj2OS7jd1%2FVFHVK8B0I%2F70%3D9LYseQE9nIGWq6GFnCZVzcwzuI6ObmSWxPSWZbjwqLzFvz0zDJ'))

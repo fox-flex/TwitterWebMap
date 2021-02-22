@@ -11,7 +11,7 @@ setuptools.setup(
     description="Web-map based on Twitter API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/fox-flex/puzzle",
+    url="https://github.com/fox-flex/Twitter_web_map.git",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
