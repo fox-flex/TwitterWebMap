@@ -11,7 +11,6 @@ def crate_list_of_points(name: str, bearer_token: str) -> dict:
     Function create dict of points using request by Twitter API anf geopy
     It crate dict of points with coordinates of locations of given user friends
     """
-    # from modules.hidden import bearer_token
     geolocator = Nominatim(user_agent="super_puper_extra_important_request")
 
     base_url = 'https://api.twitter.com/'
@@ -47,14 +46,14 @@ def crate_list_of_points(name: str, bearer_token: str) -> dict:
     return points
 
 
-def create_map(points:dict):
+def create_map(name: str, points:dict):
     """
     function create web map in html format in which are marked points
     """
     map0 = folium.Map(zoom_start=7)
     tooltip = "flex!"
 
-    point_layer = folium.FeatureGroup(name="Friends Search")
+    point_layer = folium.FeatureGroup(name=f"Friends Search of {name}")
     for pos in points:
         point_layer.add_child(folium.Marker(location=pos,
                                             popup=points[pos],
@@ -66,4 +65,5 @@ def create_map(points:dict):
 
 
 if __name__ == '__main__':
-    create_map(crate_list_of_points('ElonMusk','AAAAAAAAAAAAAAAAAAAAAF0GNAEAAAAA4ArRfJj2OS7jd1%2FVFHVK8B0I%2F70%3D9LYseQE9nIGWq6GFnCZVzcwzuI6ObmSWxPSWZbjwqLzFvz0zDJ'))
+    NAME = 'ElonMusk'
+    create_map(NAME, crate_list_of_points(NAME, 'AAAAAAAAAAAAAAAAAAAAAF0GNAEAAAAA4ArRfJj2OS7jd1%2FVFHVK8B0I%2F70%3D9LYseQE9nIGWq6GFnCZVzcwzuI6ObmSWxPSWZbjwqLzFvz0zDJ'))

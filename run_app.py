@@ -3,7 +3,7 @@ main module, run the webpage
 """
 from flask import Flask, render_template, request
 # from flask import redirect
-from task3.modules.crate_map import create_map, crate_list_of_points
+from modules.crate_map import create_map, crate_list_of_points
 
 app = Flask(__name__)
 
@@ -19,12 +19,10 @@ def index():
 def register():
     name = request.form.get("screen_name")
     bearer_token = request.form.get("bearer_token")
-    # from modules.hidden0 import bearer_token
-    print(name)
-    print(bearer_token)
+    # from modules.hidden import bearer_token
     if not name or not bearer_token:
         return render_template("failure.html")
-    create_map(crate_list_of_points(name, bearer_token))
+    create_map(name, crate_list_of_points(name, bearer_token))
     return render_template("map.html")
 
 
