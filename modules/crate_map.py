@@ -66,4 +66,6 @@ def create_map(name: str, points:dict):
 
 if __name__ == '__main__':
     NAME = 'ElonMusk'
-    create_map(NAME, crate_list_of_points(NAME, 'AAAAAAAAAAAAAAAAAAAAAF0GNAEAAAAA4ArRfJj2OS7jd1%2FVFHVK8B0I%2F70%3D9LYseQE9nIGWq6GFnCZVzcwzuI6ObmSWxPSWZbjwqLzFvz0zDJ'))
+    token = ''
+    # from hidden import bearer_token as token
+    create_map(NAME, crate_list_of_points(NAME, token))
